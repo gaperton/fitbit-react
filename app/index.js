@@ -4,27 +4,27 @@ import document from "document";
 // Update the clock every second
 clock.granularity = "minutes";
 
-let hourHand = document.getElementById("hours");
-let minHand = document.getElementById("minutes");
-
-// Returns an angle (0-360) for the current hour in the day, including minutes
-function hoursToAngle(hours, minutes) {
-  let hourAngle = (360 / 12) * hours;
-  let minAngle = (360 / 12 / 60) * minutes;
-  return hourAngle + minAngle;
+const Hand = id => {
+  const el = document.getElementById( id );
+  
+  return angle => {
+    el.groupTransform.rotate.angle = angle;
+  }
 }
 
-// Returns an angle (0-360) for minutes
-function minutesToAngle(minutes) {
-  return (360 / 60) * minutes;
+const Watchface = () => {
+  const hoursHand = Hand( 'hours' ),
+    minutesHand = Hand( 'minutes' );
+
+  clock.ontick = () => {
+    const today = new Date(),
+      hours = today.getHours() % 12,
+      minutes = today.getMinutes();
+
+    const minsAngle = minutes * 360 / 60;
+    minutesHand( minsAngle );
+    hoursHand( hours * 360 / 12 + minsAngle / 12 );
+  }  
 }
 
-// Update the clock every tick event
-clock.ontick = () => {
-  let today = new Date();
-  let hours = today.getHours() % 12;
-  let mins = today.getMinutes();
-
-  hourHand.groupTransform.rotate.angle = hoursToAngle(hours, mins);
-  minHand.groupTransform.rotate.angle = minutesToAngle(mins);
-}
+Watchface();
