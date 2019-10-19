@@ -1,0 +1,39 @@
+{
+  "name": "fitbit-react",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@fitbit/sdk": "^4.0.0",
+    "@fitbit/sdk-cli": "^1.7.0",
+    "@types/node": "^12.11.1",
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.2",
+    "ts-node" : "*"
+  },
+  "fitbit": {
+    "appUUID": "ebc83115-60d8-45dc-8237-6c925f5554c7",
+    "appType": "clockface",
+    "appDisplayName": "Fitbit React Starter",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#ffffff",
+    "requestedPermissions": [
+      "access_location"
+    ],
+    "buildTargets": [
+      "meson",
+      "gemini",
+      "mira"
+    ],
+    "i18n": {},
+    "defaultLanguage": "en-US"
+  },
+  "scripts": {
+    "build": "yarn ts-node -P views/tsconfig.json views/index.jsx && fitbit-build",
+    "debug": "fitbit"
+  },
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
+}

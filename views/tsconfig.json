@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "types": ["node"],
+    "jsxFactory": "React.createElement",
+    "module": "commonjs"
+  }
+}
