@@ -4,7 +4,7 @@ Fitbit OS project starter with React components as SVG view engine.
 
 Instead of manually writing SVG in `index.gui`, you create React components in `views` folder and `index.gui` will be generated out of them during the build.
 
-Get rid of annoying copy-pase and concentrate on SVG drawing.
+Get rid of annoying copy-pase, make your markup clean, and concentrate on SVG drawing. FInally.
 
 ```javascript
 import React from 'react'
