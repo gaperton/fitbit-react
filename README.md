@@ -51,9 +51,9 @@ Iterate in a range of integers.
 
 Renders the `index.gui` file.
 
-#### <Rotate angle={45}>
+#### `<Rotate angle={45}>`
 
-Wrapper around <g transform="rotate(angle)" />. All other props are passed through.
+Wrapper around `<g transform="rotate(angle)" />`. All other props are passed through.
 
 ## Application structure
 
