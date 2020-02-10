@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { writeFileSync } from 'fs'
 
@@ -6,7 +6,7 @@ export function render( Component ){
     writeFileSync( './resources/index.gui', ReactDOMServer.renderToStaticMarkup( <Component /> ) );
 }
 
-export function loop( from, to, a_step, a_fun ){
+export function forRange( from, to, a_step, a_fun ){
     const fun = a_fun || a_step,
         step = a_fun ? a_step : 1;
 
@@ -20,7 +20,7 @@ export function loop( from, to, a_step, a_fun ){
     return res;
 }
 
-export const Rotate = ({ angle, children, ...rest }) =>
+export const GRotate = ({ angle, children, ...rest }) =>
     angle ? 
         <g transform={`rotate(${ angle })`} {...rest}>
             { children }
@@ -29,3 +29,9 @@ export const Rotate = ({ angle, children, ...rest }) =>
         <g {...rest}>
             { children }
         </g>
+
+export const Number = ({ id, size, ...rest }) =>
+    <Fragment>
+        <text id={ id + '-int' } {...rest, size } textAnchor="end"/>
+        <text id={ id + '-fr' } {...rest } size={ size * 0.8 } textAnchor="start"/>
+    </Fragment>

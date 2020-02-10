@@ -1,15 +1,15 @@
 {
   "name": "fitbit-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "@fitbit/sdk": "^4.0.0",
+    "@fitbit/sdk": "^4.1.0",
     "@fitbit/sdk-cli": "^1.7.0",
     "@types/node": "^12.11.1",
     "@types/react": "^16.9.9",
     "@types/react-dom": "^16.9.2",
-    "ts-node" : "*"
+    "ts-node": "*"
   },
   "fitbit": {
     "appUUID": "ebc83115-60d8-45dc-8237-6c925f5554c7",
